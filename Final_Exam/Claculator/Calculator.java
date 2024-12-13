@@ -8,40 +8,45 @@ public class Calculator extends JFrame implements ActionListener {
     private String num1 = "", num2 = "", operator = "";
 
     public Calculator() {
-        
         setTitle("Calculator");
         setSize(400, 400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-       
+        // Configure the display (JTextField)
         display = new JTextField();
         display.setEditable(false);
-        display.setFont(new Font("Arial", Font.BOLD, 20));
+        display.setFont(new Font("Arial", Font.BOLD, 20));  // Bold font
+        display.setBackground(Color.RED);  // Red background
+        display.setForeground(Color.YELLOW);  // Yellow text
         add(display, BorderLayout.NORTH);
 
-       
+        // Configure the button panel (JPanel)
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(4, 4));
 
-       
+        // Buttons array
         String[] buttons = {
-                "7", "8", "9", "/",
-                "4", "5", "6", "*",
-                "1", "2", "3", "-",
-                "C", "0", "=", "+"
+            "7", "8", "9", "/",
+            "4", "5", "6", "*",
+            "1", "2", "3", "-",
+            "C", "0", "=", "+"
         };
 
+        // Add buttons to the panel with custom colors and fonts
         for (String text : buttons) {
             JButton button = new JButton(text);
-            button.setFont(new Font("Arial", Font.BOLD, 20));
+            button.setFont(new Font("Arial", Font.BOLD, 20));  // Bold font
+            button.setBackground(Color.YELLOW);  // Yellow background
+            button.setForeground(Color.RED);  // Red text
             button.addActionListener(this);
             buttonPanel.add(button);
         }
 
+        // Add button panel to the frame
         add(buttonPanel, BorderLayout.CENTER);
 
-       
+        // Set visibility of the frame
         setVisible(true);
     }
 
